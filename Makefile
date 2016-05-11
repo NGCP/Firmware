@@ -115,6 +115,12 @@ define cmake-build
 +@(echo "PX4 CONFIG: $@" && cd $(PWD)/build_$@ && $(PX4_MAKE) $(PX4_MAKE_ARGS) $(ARGS))
 endef
 
+define cmake-netbeans
++@if [ $(PX4_CMAKE_GENERATOR) = "Ninja" ] && [ -e ./build_$@/Makefile ]; then rm -rf ./build_$@; fi
++@if [ ! -e ./build_$@/CMakeCache.txt ]; then Tools/check_submodules.sh && mkdir -p ./build_$@ && cd ./build_$@ && cmake .. -G$(PX4_CMAKE_GENERATOR) -DCONFIG=$(1) || (cd .. && rm -rf ./build_$@); fi
++@Tools/check_submodules.sh
++@(echo "PX4 CONFIG: $@" && cd ./build_$@ && $(PX4_MAKE) $(PX4_MAKE_ARGS) $(ARGS))
+endef
 # create empty targets to avoid msgs for targets passed to cmake
 define cmake-targ
 $(1):
@@ -132,7 +138,7 @@ endef
 # --------------------------------------------------------------------
 #  Do not put any spaces between function arguments.
 cpuav:
-	$(call cmake-build,nuttx_px4fmu-v4_cpuav)
+	$(call cmake-netbeans,nuttx_px4fmu-v4_cpuav)
 
 px4fmu-v1_default:
 	$(call cmake-build,nuttx_px4fmu-v1_default)
