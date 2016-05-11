@@ -77,7 +77,8 @@ endif
 # in that directory with the target upload.
 
 #  explicity set default build target
-all: px4fmu-v2_default
+#all: px4fmu-v2_default
+all: cpuav
 
 # Parsing
 # --------------------------------------------------------------------
@@ -136,6 +137,8 @@ endef
 # ADD CONFIGS HERE
 # --------------------------------------------------------------------
 #  Do not put any spaces between function arguments.
+cpuav:
+	$(call cmake-build,nuttx_px4fmu-v4_cpuav)
 
 px4fmu-v1_default:
 	$(call cmake-build,nuttx_px4fmu-v1_default)
