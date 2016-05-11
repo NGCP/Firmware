@@ -2,7 +2,7 @@ include(nuttx/px4_impl_nuttx)
 
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/toolchains/Toolchain-arm-none-eabi.cmake)
 
-set(config_uavcan_num_ifaces 1)
+set(config_uavcan_num_ifaces 2)
 
 set(config_module_list
 	#
@@ -14,37 +14,41 @@ set(config_module_list
 	drivers/stm32/tone_alarm
 	drivers/led
 	drivers/px4fmu
-	drivers/boards/px4fmu-v4
+	drivers/px4io
+	drivers/boards/px4fmu-v2
 	drivers/rgbled
 	drivers/mpu6000
 	drivers/mpu9250
+	drivers/lsm303d
+	drivers/l3gd20
 	drivers/hmc5883
 	drivers/ms5611
-	drivers/mb12xx
+	#drivers/mb12xx
 	drivers/srf02
 	drivers/sf0x
 	drivers/ll40ls
 	drivers/trone
 	drivers/gps
 	drivers/pwm_out_sim
-	drivers/hott
-	drivers/hott/hott_telemetry
-	drivers/hott/hott_sensors
+	#drivers/hott
+	#drivers/hott/hott_telemetry
+	#drivers/hott/hott_sensors
 	drivers/blinkm
 	drivers/airspeed
 	drivers/ets_airspeed
 	drivers/meas_airspeed
 	drivers/frsky_telemetry
 	modules/sensors
-	drivers/mkblctrl
+	#drivers/mkblctrl
 	drivers/px4flow
-	drivers/oreoled
+	#drivers/oreoled
 	drivers/gimbal
 	drivers/pwm_input
 	drivers/camera_trigger
 	drivers/bst
 	drivers/snapdragon_rc_pwm
 	drivers/lis3mdl
+	drivers/bmi160
 
 	#
 	# System commands
@@ -56,14 +60,13 @@ set(config_module_list
 	systemcmds/pwm
 	systemcmds/esc_calib
 	systemcmds/reboot
-	systemcmds/topic_listener
+	#systemcmds/topic_listener
 	systemcmds/top
 	systemcmds/config
 	systemcmds/nshterm
 	systemcmds/mtd
 	systemcmds/dumpfile
 	systemcmds/ver
-	systemcmds/tests
 
 	#
 	# General system control
@@ -78,12 +81,10 @@ set(config_module_list
 	#
 	# Estimation modules (EKF/ SO3 / other filters)
 	#
-	# Too high RAM usage due to static allocations
-	# modules/attitude_estimator_ekf
 	modules/attitude_estimator_q
 	modules/ekf_att_pos_estimator
 	modules/position_estimator_inav
-	modules/ekf2
+	modules/local_position_estimator
 
 	#
 	# Vehicle Control
@@ -115,7 +116,6 @@ set(config_module_list
 	lib/controllib
 	lib/mathlib
 	lib/mathlib/math/filter
-	lib/rc
 	lib/ecl
 	lib/external_lgpl
 	lib/geo
@@ -129,7 +129,7 @@ set(config_module_list
 	platforms/nuttx
 
 	# had to add for cmake, not sure why wasn't in original config
-	platforms/common
+	platforms/common 
 	platforms/nuttx/px4_layer
 
 	#
@@ -140,7 +140,7 @@ set(config_module_list
 	#
 	# Rover apps
 	#
-	examples/rover_steering_control
+	#examples/rover_steering_control
 
 	#
 	# Demo apps
@@ -148,7 +148,7 @@ set(config_module_list
 	#examples/math_demo
 	# Tutorial code from
 	# https://px4.io/dev/px4_simple_app
-	examples/px4_simple_app
+	#examples/px4_simple_app
 
 	# Tutorial code from
 	# https://px4.io/dev/daemon
@@ -174,6 +174,10 @@ set(config_extra_builtin_cmds
 	sercon
 	)
 
+set(config_io_board
+	px4io-v2
+	)
+
 set(config_extra_libs
 	uavcan
 	uavcan_stm32_driver
@@ -185,11 +189,9 @@ set(config_io_extra_libs
 add_custom_target(sercon)
 set_target_properties(sercon PROPERTIES
 	PRIORITY "SCHED_PRIORITY_DEFAULT"
-	MAIN "sercon"
-	STACK_MAIN "2048")
+	MAIN "sercon" STACK_MAIN "2048")
 
 add_custom_target(serdis)
 set_target_properties(serdis PROPERTIES
 	PRIORITY "SCHED_PRIORITY_DEFAULT"
-	MAIN "serdis"
-	STACK_MAIN "2048")
+	MAIN "serdis" STACK_MAIN "2048")
