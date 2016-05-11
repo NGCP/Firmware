@@ -138,7 +138,7 @@ endef
 # --------------------------------------------------------------------
 #  Do not put any spaces between function arguments.
 cpuav:
-	$(call cmake-build,nuttx_px4fmu-v4_cpuav)
+	$(call cmake-netbeans,nuttx_px4fmu-v2_cpuav)
 
 px4fmu-v1_default:
 	$(call cmake-build,nuttx_px4fmu-v1_default)

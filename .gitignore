@@ -73,3 +73,7 @@ GTAGS
 # uavcan firmware
 ROMFS/px4fmu_common/uavcan/
 vectorcontrol/
+
+# NGCP
+nbproject/*
+.directory
