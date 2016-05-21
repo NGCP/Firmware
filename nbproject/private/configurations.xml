@@ -18253,7 +18253,6 @@
                 <in>basic_definitions</in>
                 <in>bitset</in>
                 <in>cfloat</in>
-                <in>char_traits</in>
                 <in>clocale</in>
                 <in>complex</in>
                 <in>csetjmp</in>
@@ -26688,45 +26687,7 @@
             <in>gazebo_opticalFlow_plugin.h</in>
             <in>geo_mag_declination.h</in>
           </df>
-          <df name="models">
-            <df name="asphalt_plane">
-              <df name="materials">
-                <df name="scripts">
-                </df>
-                <df name="textures">
-                </df>
-              </df>
-            </df>
-            <df name="flow_cam">
-            </df>
-            <df name="iris">
-            </df>
-            <df name="iris_opt_flow">
-            </df>
-            <df name="lidar">
-            </df>
-            <df name="plane">
-              <df name="meshes">
-              </df>
-            </df>
-            <df name="rotors_description">
-              <df name="meshes">
-              </df>
-              <df name="urdf">
-              </df>
-            </df>
-            <df name="standard_vtol">
-              <df name="meshes">
-              </df>
-            </df>
-            <df name="tailsitter">
-              <df name="meshes">
-              </df>
-            </df>
-          </df>
           <df name="msgs">
-          </df>
-          <df name="scripts">
           </df>
           <df name="src">
             <df name="liftdrag_plugin">
@@ -26747,68 +26708,22 @@
         </df>
       </df>
       <df name="unittests">
-        <df name="arch">
-          <df name="board">
-            <in>board.h</in>
-          </df>
-        </df>
         <df name="data">
           <in>fit_linear_voltage.m</in>
         </df>
         <df name="googletest">
-          <df name="build-aux">
-          </df>
-          <df name="cmake">
-          </df>
           <df name="codegear">
             <in>gtest_all.cc</in>
             <in>gtest_link.cc</in>
           </df>
-          <df name="include">
-            <df name="gtest">
-              <df name="internal">
-                <in>gtest-death-test-internal.h</in>
-                <in>gtest-filepath.h</in>
-                <in>gtest-internal.h</in>
-                <in>gtest-linked_ptr.h</in>
-                <in>gtest-param-util-generated.h</in>
-                <in>gtest-param-util.h</in>
-                <in>gtest-port.h</in>
-                <in>gtest-string.h</in>
-                <in>gtest-tuple.h</in>
-                <in>gtest-type-util.h</in>
-              </df>
-              <in>gtest-death-test.h</in>
-              <in>gtest-message.h</in>
-              <in>gtest-param-test.h</in>
-              <in>gtest-printers.h</in>
-              <in>gtest-spi.h</in>
-              <in>gtest-test-part.h</in>
-              <in>gtest-typed-test.h</in>
-              <in>gtest.h</in>
-              <in>gtest_pred_impl.h</in>
-              <in>gtest_prod.h</in>
-            </df>
-          </df>
-          <df name="m4">
-          </df>
-          <df name="make">
-          </df>
-          <df name="msvc">
-          </df>
           <df name="samples">
-            <in>prime_tables.h</in>
             <in>sample1.cc</in>
-            <in>sample1.h</in>
             <in>sample10_unittest.cc</in>
             <in>sample1_unittest.cc</in>
             <in>sample2.cc</in>
-            <in>sample2.h</in>
             <in>sample2_unittest.cc</in>
-            <in>sample3-inl.h</in>
             <in>sample3_unittest.cc</in>
             <in>sample4.cc</in>
-            <in>sample4.h</in>
             <in>sample4_unittest.cc</in>
             <in>sample5_unittest.cc</in>
             <in>sample6_unittest.cc</in>
@@ -26816,15 +26731,10 @@
             <in>sample8_unittest.cc</in>
             <in>sample9_unittest.cc</in>
           </df>
-          <df name="scripts">
-            <df name="test">
-            </df>
-          </df>
           <df name="src">
             <in>gtest-all.cc</in>
             <in>gtest-death-test.cc</in>
             <in>gtest-filepath.cc</in>
-            <in>gtest-internal-inl.h</in>
             <in>gtest-port.cc</in>
             <in>gtest-printers.cc</in>
             <in>gtest-test-part.cc</in>
@@ -26842,14 +26752,12 @@
             <in>gtest-options_test.cc</in>
             <in>gtest-param-test2_test.cc</in>
             <in>gtest-param-test_test.cc</in>
-            <in>gtest-param-test_test.h</in>
             <in>gtest-port_test.cc</in>
             <in>gtest-printers_test.cc</in>
             <in>gtest-test-part_test.cc</in>
             <in>gtest-tuple_test.cc</in>
             <in>gtest-typed-test2_test.cc</in>
             <in>gtest-typed-test_test.cc</in>
-            <in>gtest-typed-test_test.h</in>
             <in>gtest-unittest-api_test.cc</in>
             <in>gtest_all_test.cc</in>
             <in>gtest_break_on_failure_unittest_.cc</in>
@@ -26878,50 +26786,27 @@
             <in>gtest_xml_outfile2_test_.cc</in>
             <in>gtest_xml_output_unittest_.cc</in>
             <in>production.cc</in>
-            <in>production.h</in>
           </df>
           <df name="xcode">
-            <df name="Config">
-            </df>
-            <df name="gtest.xcodeproj">
-            </df>
-            <df name="Resources">
-            </df>
             <df name="Samples">
               <df name="FrameworkSample">
-                <df name="WidgetFramework.xcodeproj">
-                </df>
                 <in>widget.cc</in>
-                <in>widget.h</in>
                 <in>widget_test.cc</in>
               </df>
             </df>
-            <df name="Scripts">
-            </df>
           </df>
-        </df>
-        <df name="nuttx">
-          <in>config.h</in>
-        </df>
-        <df name="testdata">
         </df>
         <df name="uorb_unittests">
           <in>uORBCommunicatorMock.cpp</in>
-          <in>uORBCommunicatorMock.hpp</in>
           <in>uORBCommunicatorMockLoopback.cpp</in>
-          <in>uORBCommunicatorMockLoopback.hpp</in>
           <in>uORBCommunicator_gtests.cpp</in>
-          <in>uORBGtestTopics.hpp</in>
         </df>
         <in>autodeclination_test.cpp</in>
-        <in>board_config.h</in>
         <in>conversion_test.cpp</in>
-        <in>debug.h</in>
         <in>dsm_test.cpp</in>
         <in>hrt.cpp</in>
         <in>mixer_test.cpp</in>
         <in>param_test.cpp</in>
-        <in>queue.h</in>
         <in>sbus2_test.cpp</in>
         <in>sf0x_test.cpp</in>
         <in>st24_test.cpp</in>
