@@ -115,10 +115,11 @@ define cmake-build
 +@(echo "PX4 CONFIG: $@" && cd $(PWD)/build_$@ && $(PX4_MAKE) $(PX4_MAKE_ARGS) $(ARGS))
 endef
 
-define cmake-build-other
-+@if [ $(PX4_CMAKE_GENERATOR) = "Ninja" ] && [ -e $(PWD)/build_$@/Makefile ]; then rm -rf $(PWD)/build_$@; fi
-+@if [ ! -e $(PWD)/build_$@/CMakeCache.txt ]; then Tools/check_submodules.sh && mkdir -p $(PWD)/build_$@ && cd $(PWD)/build_$@ && cmake $(2) -G$(PX4_CMAKE_GENERATOR) || (cd .. && rm -rf $(PWD)/build_$@); fi
-+@(cd $(PWD)/build_$@ && $(PX4_MAKE) $(PX4_MAKE_ARGS) $(ARGS))
+define cmake-netbeans
++@if [ $(PX4_CMAKE_GENERATOR) = "Ninja" ] && [ -e ./build_$@/Makefile ]; then rm -rf ./build_$@; fi
++@if [ ! -e ./build_$@/CMakeCache.txt ]; then Tools/check_submodules.sh && mkdir -p ./build_$@ && cd ./build_$@ && cmake .. -G$(PX4_CMAKE_GENERATOR) -DCONFIG=$(1) || (cd .. && rm -rf ./build_$@); fi
++@Tools/check_submodules.sh
++@(echo "PX4 CONFIG: $@" && cd ./build_$@ && $(PX4_MAKE) $(PX4_MAKE_ARGS) $(ARGS))
 endef
 
 # create empty targets to avoid msgs for targets passed to cmake
